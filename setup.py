@@ -20,12 +20,12 @@ setup(
     description="A User Friendly project manager/creator for FastAPI Project",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    author="Your Name",
-    author_email="your.email@example.com",
-    url="https://github.com/yourusername/fastapi-admin",
+    author="ahMAD ASSadi",
+    author_email="madassandd@gmail.com",
+    url="ahMADASSadi",
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GNU License",
         "Operating System :: OS Independent",
     ],
 )
