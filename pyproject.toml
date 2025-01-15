@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "fastapi-admin"
+version = "0.1.0"
+description = "A FastAPI admin panel"
+authors = ["Ahmad Assadi <ds1380ahmad@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "fastapi_admin" }  # Matches the main package folder
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = { extras = ["standard"], version = "^0.115.6" }
+typer = "^0.15.1"
+jinja2 = "^3.1.5"
+setuptools = "^75.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+fastapi-admin = "fastapi_admin.cli:main"
