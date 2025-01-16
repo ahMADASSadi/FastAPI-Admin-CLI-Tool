@@ -1,0 +1,1 @@
+from fastapi_admin.core.database.models.base import BaseModel
