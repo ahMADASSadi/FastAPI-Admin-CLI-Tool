@@ -1,7 +1,7 @@
 from sqlmodel import SQLModel
 
 
-class Base(SQLModel):
+class BaseModel(SQLModel):
     """Base model class
 
     Args:
