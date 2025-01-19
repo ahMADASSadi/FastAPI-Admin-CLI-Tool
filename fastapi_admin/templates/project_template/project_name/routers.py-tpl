@@ -11,11 +11,11 @@ from {{project_name}}.config.settings import lifespan
 app = FastAPI(title="{{project_name}}",lifespan=lifespan)
 
 
-routes=[
+routers=[
 
 ]
 
-app.include_router(*routes)
+[ app.include_router(router) for router in routers]
 
 
 @app.get("/")
