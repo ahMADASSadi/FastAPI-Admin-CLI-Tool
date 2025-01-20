@@ -25,7 +25,8 @@ def startproject(project_name: str, project_dir: str = "."):
 
         # Check if the project directory already exists
         if target_dir.exists():
-            typer.echo(f"Error: Project '{project_name}' already exists in '{target_dir}'.")
+            typer.echo(f"Error: Project '{
+                       project_name}' already exists in '{target_dir}'.")
             raise typer.Exit(1)
 
         # Create a temporary directory for atomic operations
@@ -48,19 +49,22 @@ def startproject(project_name: str, project_dir: str = "."):
             # Move the temporary directory to the target directory
             shutil.move(str(temp_dir_path), str(target_dir))
 
-        typer.echo(f"Project '{project_name}' created successfully in '{target_dir}'!")
+        typer.echo(f"Project '{project_name}' created successfully in '{
+                   target_dir}'!")
 
     except Exception as e:
         typer.echo(f"Error: {str(e)}")
         if "temp_dir_path" in locals() and temp_dir_path.exists():
-            shutil.rmtree(temp_dir_path)  # Clean up the temporary directory on failure
+            # Clean up the temporary directory on failure
+            shutil.rmtree(temp_dir_path)
         raise typer.Exit(1)
-    
+
+
 @app.command()
-def startapp(app_name: str, project_name: Optional[str] = None):
+def startapp(app_name: str):#, project_name: Optional[str] = None):
     try:
         # Validate the app name
-        if not validate_name(app_name):
+        if not validate_name(app_name, entity="app"):
             raise typer.Exit(1)
 
         # Define paths
@@ -69,12 +73,13 @@ def startapp(app_name: str, project_name: Optional[str] = None):
 
         # Check if manage.py exists
         if not (Path.cwd() / "manage.py").exists():
-            typer.echo("Error: manage.py not found. Make sure you're in the project root directory.")
+            typer.echo(
+                "Error: manage.py not found. Make sure you're in the project root directory.")
             raise typer.Exit(1)
 
         # Check if the app directory already exists
         if target_dir.exists():
-            typer.echo(f"Error: app '{app_name}' already exists.")
+            typer.echo(f"Error: App '{app_name}' already exists.")
             raise typer.Exit(1)
 
         # Create a temporary directory for atomic operations
@@ -90,11 +95,12 @@ def startapp(app_name: str, project_name: Optional[str] = None):
                 render_template(
                     env=env,
                     template_file=template_file,
-                    app_name=app_name,
                     target_dir=temp_dir_path,
-                    project_name=project_name,
+                    app_name=app_name,
+                    # project_name=project_name,
                 )
-            
+
+            # Move the temporary directory to the target directory
             shutil.move(str(temp_dir_path), str(target_dir))
 
         typer.echo(f"App '{app_name}' created successfully!")
@@ -102,8 +108,10 @@ def startapp(app_name: str, project_name: Optional[str] = None):
     except Exception as e:
         typer.echo(f"Error: {str(e)}")
         if "temp_dir_path" in locals() and temp_dir_path.exists():
-            shutil.rmtree(temp_dir_path)  # Clean up the temporary directory on failure
+            # Clean up the temporary directory on failure
+            shutil.rmtree(temp_dir_path)
         raise typer.Exit(1)
+
 
 def main():
     """Entrypoint for the CLI."""
