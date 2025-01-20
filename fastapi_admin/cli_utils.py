@@ -3,11 +3,11 @@ from pathlib import Path
 import typer
 
 
-def validate_app_name(app_name: str) -> bool:
-    """Validate the app name to ensure it follows naming conventions."""
-    if not app_name.isidentifier():
-        typer.echo(f"Error: '{
-                   app_name}' is not a valid app name. It must be a valid Python identifier.")
+def validate_name(name: str, entity: str = "app") -> bool:
+    """Validate the name to ensure it follows naming conventions."""
+    if not name.isidentifier():
+        typer.echo(f"Error: '{name}' is not a valid {
+                   entity} name. It must be a valid Python identifier.")
         return False
     return True
 
@@ -15,17 +15,17 @@ def validate_app_name(app_name: str) -> bool:
 def render_template(
     env,
     template_file: str,
-    app_name: str,
     target_dir: Path,
-    project_name: Optional[str] = None,
+    **context,
 ) -> None:
     """Render a template file and save it to the target directory."""
     template = env.get_template(template_file)
-    rendered_content = template.render(
-        app_name=app_name, project_name=project_name)
+    rendered_content = template.render(**context)
 
-    # Replace "app_name" in the filename and handle template extensions
-    target_file = template_file.replace("app_name", app_name)
+    # Replace placeholders in the filename and handle template extensions
+    target_file = template_file
+    for key, value in context.items():
+        target_file = target_file.replace(key, value)
     if target_file.endswith("-tpl"):
         target_file = target_file[:-4]  # Remove the "-tpl" extension
 
