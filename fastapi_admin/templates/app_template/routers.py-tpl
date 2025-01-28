@@ -1,4 +1,4 @@
 from fastapi import APIRouter
 
 
-app = APIRouter()
+{{app_name}} = APIRouter()
