@@ -1,16 +1,18 @@
 import sys
-import uvicorn
-from {{project_name}}.routers import app
+import os
+
+def main():
+    """Run administrative tasks."""
+    #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
+    try:
+        from fastapi_admin.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Couldn't import FastAPI. Are you sure it's installed and "
+            "available on your PYTHONPATH environment variable? Did you "
+            "forget to activate a virtual environment?"
+        ) from exc
+    execute_from_command_line(sys.argv)
 
 if __name__ == "__main__":
-
-    if len(sys.argv) > 1:
-        command = sys.argv[1]
-        commands(command)
-    else:
-        """
-        for running the app using the uvicorn and in the production mode rather than the FastAPI built-in command (fastapi run)
-        """
-        # fast_api_cli.dev('app')
-        # This is where the app would run during development
-        uvicorn.run(app, host='0.0.0.0', port=8000)
+    main()
