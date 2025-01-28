@@ -1,5 +1,5 @@
 import asyncpg
-from jose import JWTError, jwt
+#from jose import JWTError, jwt
 from typing_extensions import Annotated
 from datetime import timedelta, datetime, timezone
 from contextlib import asynccontextmanager,contextmanager
@@ -73,26 +73,26 @@ REFRESH_TOKEN_EXPIRE_MINUTES = timedelta(weeks=1)
 
 
 
-def verify_access_token(token: str):
-    try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        return payload
-    except JWTError as e:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid or expired token",
-        ) from e
-
-
-def verify_refresh_token(token: str):
-    payload = verify_access_token(token)
-    if payload.get("type") != "refresh":
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid token type",
-        )
-    return payload
-
+#def verify_access_token(token: str):
+#    try:
+#        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+#        return payload
+#    except JWTError as e:
+#        raise HTTPException(
+#            status_code=status.HTTP_401_UNAUTHORIZED,
+#            detail="Invalid or expired token",
+#        ) from e
+#
+#
+#def verify_refresh_token(token: str):
+#    payload = verify_access_token(token)
+#    if payload.get("type") != "refresh":
+#        raise HTTPException(
+#            status_code=status.HTTP_401_UNAUTHORIZED,
+#            detail="Invalid token type",
+#        ) 
+#    return payload
+#
 
 def get_current_user(token: str = Depends(OAUTH2_SCHEME), session: Session = Depends(get_session)):
     """

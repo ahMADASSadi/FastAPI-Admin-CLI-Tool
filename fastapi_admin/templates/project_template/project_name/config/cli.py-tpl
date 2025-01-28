@@ -7,7 +7,7 @@ from sqlmodel import Session, select
 
 from pathlib import Path
 
-from {{project_name}}.config.setting import get_engine
+from {{project_name}}.config.settings import get_engine
 
 
 def run_subprocess(command: list[str]) -> None:
@@ -46,7 +46,7 @@ def create_super_user(session: Session):
 
 
 def migrations(option: Optional[str] = None) -> None:
-    from {{project_name}}.config.setting import DATABASE_URL
+    from {{project_name}}.config.settings import DATABASE_URL
 
     alembic_dir = Path("{{project_name}}/config/migrations")
     config_dir = Path("{{project_name}}/config")
