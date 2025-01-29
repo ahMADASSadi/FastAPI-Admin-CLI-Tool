@@ -6,6 +6,7 @@ import typer
 from typing import List
 import importlib.resources
 import fastapi_admin
+
 from fastapi_admin.core.management.commands import validate_name, render_template, app
 from fastapi_admin.core.management.base import BaseCommand
 
@@ -24,7 +25,7 @@ class StartAppCommand(BaseCommand):
 
             # Define paths
             template_dir = importlib.resources.files(fastapi_admin).joinpath('templates/app_template')
-            target_dir = Path.cwd() / app_name
+            target_dir = args[1] if len(args)>1 else Path.cwd() / app_name
 
             # Check if manage.py exists
             if not (Path.cwd() / "manage.py").exists():
