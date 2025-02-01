@@ -10,12 +10,22 @@ After installation, you are all set to use it:
 
 At the moment, only two main below commands are implemented:
 
+### 0. List the commands
+
+To see the existing commands you can simply run `fact` or `fact list`.
+This command will return a list of commands that are available.
+for example:
+
+```python
+startapp: start a new app
+```
+
 ### 1. Creating a new project
 
 To create a new project you only need simply to call:
 
 ```sh
-fastapi-admin startproject [project_name] [project_directory]
+fact startproject [project_name] [project_directory]
 ```
 
 - project_name:
@@ -27,7 +37,7 @@ fastapi-admin startproject [project_name] [project_directory]
 Below is an example you might find usefull:
 
 ```sh
-fastapi-admin startproject lets_rock .
+fact startproject lets_rock .
 ```
 
 The command above will start and create a project named "lets_rock" in the directory of "." which is the current working directory.
@@ -38,7 +48,7 @@ note that the "." is not necessary and its the **default** directory value.
 To create a new app you only need simply to call:
 
 ```sh
-fastapi-admin startapp [app_name] [app_directory]
+fact startapp [app_name] [app_directory]
 ```
 
 - app_name:
@@ -50,10 +60,8 @@ fastapi-admin startapp [app_name] [app_directory]
 Below is an example you might find usefull:
 
 ```sh
-fastapi-admin startapp queen 
+fact startapp queen 
 ```
 
 The command above will create an app named "queen" in the current working directory.
 Note that for this command to work, you must already created a project and run it in the same directory as the manage.py file is.
-
-
