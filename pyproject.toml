@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "fastapi-admin"
+name = "fact"
 version = "0.1.0"
-description = "A FastAPI admin panel"
+description = "A FastAPI-Admin-CLI-Tool"
 authors = ["Ahmad Assadi <ds1380ahmad@gmail.com>"]
 readme = "README.md"
 packages = [
@@ -23,4 +23,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-fastapi-admin = "fastapi_admin.cli:main"
+fact = "fastapi_admin.cli:main"
