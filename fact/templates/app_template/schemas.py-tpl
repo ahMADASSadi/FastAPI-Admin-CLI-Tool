@@ -1,0 +1,1 @@
+from fact.core.database.schemas.base import BaseSchema

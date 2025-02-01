@@ -5,7 +5,7 @@ def main():
     """Run administrative tasks."""
     #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
     try:
-        from fastapi_admin.core.management import execute_from_command_line
+        from fact.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(
             "Couldn't import FastAPI. Are you sure it's installed and "

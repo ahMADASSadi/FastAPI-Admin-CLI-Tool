@@ -3,7 +3,7 @@ from typing import Dict, Type
 from pathlib import Path
 import os
 
-from fastapi_admin.core.management.base import BaseCommand
+from fact.core.management.base import BaseCommand
 
 
 def load_commands(commands_dir: str = Path(__file__).parent/"commands") -> Dict[str, Type[BaseCommand]]:

@@ -2,12 +2,12 @@ import importlib.resources
 from pathlib import Path
 from typing import List
 
-import fastapi_admin
+import fact
 
 class BaseCommand:
     help: str = ""
     template_dir: Path = importlib.resources.files(
-        fastapi_admin).joinpath('templates')
+        fact).joinpath('templates')
 
     def handle(self, args: List[str]):
         """

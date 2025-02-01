@@ -5,8 +5,8 @@ import tempfile
 import shutil
 import typer
 
-from fastapi_admin.core.management.commands import validate_name, render_template
-from fastapi_admin.core.management.base import BaseCommand
+from fact.core.management.commands import validate_name, render_template
+from fact.core.management.base import BaseCommand
 
 
 

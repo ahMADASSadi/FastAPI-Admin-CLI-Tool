@@ -2,13 +2,13 @@ from jinja2 import Environment, FileSystemLoader
 import importlib.resources
 from pathlib import Path
 from typing import List
-import fastapi_admin
+import fact
 import tempfile
 import shutil
 import typer
 
-from fastapi_admin.core.management.commands import validate_name, render_template
-from fastapi_admin.core.management.base import BaseCommand
+from fact.core.management.commands import validate_name, render_template
+from fact.core.management.base import BaseCommand
 
 
 class StartProjectCommand(BaseCommand):
@@ -24,7 +24,7 @@ class StartProjectCommand(BaseCommand):
                 raise typer.Exit(1)
 
 
-            template_dir = importlib.resources.files(fastapi_admin).joinpath('templates/project_template')
+            template_dir = importlib.resources.files(fact).joinpath('templates/project_template')
             
             target_dir = args[1] if len(args)>1 else Path.cwd() / project_name
 
