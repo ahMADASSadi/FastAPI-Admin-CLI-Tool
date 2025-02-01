@@ -44,7 +44,7 @@ def fetch_commands(commands):
     print(f"  {'list'}: Lists all the available commands")
     
     for cmd_name, cmd_class in commands.items():
-        print(f"  {cmd_name}: {cmd_class.help_text}")
+        print(f"  {cmd_name}: {cmd_class.help}")
 
 def execute_from_command_line(argv):
     
@@ -59,9 +59,8 @@ def execute_from_command_line(argv):
 
     if subcommand in commands:
         command_class = commands[subcommand]
-        
-        command_class.handle(argv[1:])
-
+        command_instance = command_class()
+        command_instance.handle(argv[1:])
     elif subcommand in ["list", "-l"]:
         fetch_commands(commands)
     
