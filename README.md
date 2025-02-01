@@ -14,7 +14,7 @@ At the moment, only two main below commands are implemented:
 
 To create a new project you only need simply to call:
 
-```bash
+```sh
 fastapi-admin startproject [project_name] [project_directory]
 ```
 
@@ -26,7 +26,7 @@ fastapi-admin startproject [project_name] [project_directory]
 
 Below is an example you might find usefull:
 
-```bash
+```sh
 fastapi-admin startproject lets_rock .
 ```
 
@@ -37,7 +37,7 @@ note that the "." is not necessary and its the **default** directory value.
 
 To create a new app you only need simply to call:
 
-```bash
+```sh
 fastapi-admin startapp [app_name] [app_directory]
 ```
 
@@ -49,7 +49,7 @@ fastapi-admin startapp [app_name] [app_directory]
 
 Below is an example you might find usefull:
 
-```bash
+```sh
 fastapi-admin startapp queen 
 ```
 
