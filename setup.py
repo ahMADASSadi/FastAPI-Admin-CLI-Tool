@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="fastapi-admin",
+    name="fact",
     version="0.1.0",
     packages=find_packages(),
     include_package_data=True,
@@ -9,15 +9,18 @@ setup(
         "fastapi",
         "uvicorn",
         "typing",
-        "typing_extensions",
         "typer",
+        "jinja2",
+        "sqlmodel",
+        "asyncpg",
+        "jose",
     ],
     entry_points={
         "console_scripts": [
-            "fastapi-admin=fastapi_admin.cli:main",
+            "fact=fastapi_admin.main:main",
         ],
     },
-    description="A User Friendly project manager/creator for FastAPI Project",
+    description="A User Friendly CLI tool for FastAPI",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     author="ahMAD ASSadi",
