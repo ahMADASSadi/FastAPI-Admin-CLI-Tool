@@ -12,7 +12,7 @@ from fastapi_admin.core.management.base import BaseCommand
 
 
 class StartProjectCommand(BaseCommand):
-    help_text = "Create a new FastAPI project."
+    help = "Create a new FastAPI project."
     
     @classmethod
     def handle(cls, args: List[str]):
