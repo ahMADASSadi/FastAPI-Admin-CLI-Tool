@@ -17,7 +17,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "fact=fastapi_admin.main:main",
+            "fact=fact.cli:main",
         ],
     },
     description="A User Friendly CLI tool for FastAPI",
